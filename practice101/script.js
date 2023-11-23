@@ -7,7 +7,7 @@ function addTask(){
     }
     else{
         let li = document.createElement("li");
-        li.innerHTML = inputBox.value;
+        li.textContent = inputBox.value;
         listContainer.appendChild(li);
         let span = document.createElement("span");
         span.innerHTML = "\u00d7";
@@ -17,10 +17,13 @@ function addTask(){
     saveData();
 
 }
+
+//delete rows
+
 listContainer.addEventListener("click", function(e){
-    e.target.parentElement.remove("SPAN");
+    e.target.parentElement.remove();
     saveData();
-    }, false);
+});
 
 function saveData(){
     localStorage.setItem("data", listContainer.innerHTML);
