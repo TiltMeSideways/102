@@ -21,8 +21,15 @@ function addTask(){
 //delete rows
 
 listContainer.addEventListener("click", function(e){
-    e.target.parentElement.remove();
+    if (e.target.tagName === "LI"){
+        e.target.classList.none();
+        saveDate();
+    }
+    
+    else if(e.target.tagName === "SPAN"){
+        e.target.parentElement.remove();
     saveData();
+    }
 });
 
 function saveData(){
